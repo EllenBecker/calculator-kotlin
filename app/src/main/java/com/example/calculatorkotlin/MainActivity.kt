@@ -17,35 +17,38 @@ class MainActivity : AppCompatActivity() {
             var number2 = findViewById(R.id.editTextNumberDecimal2) as EditText;
 
             val number1Double = number1.text.toString().toDouble();
-
             val number2Double = number2.text.toString().toDouble();
 
-            var sum = sumNumbers(number1Double,number2Double);
-            var div = divNumbers(number1Double,number2Double);
-            var mult = multNumbers(number1Double,number2Double);
-            var sub = subNumbers(number1Double,number2Double);
+            val sum = sumNumbers(number1Double,number2Double);
+            val div = divNumbers(number1Double,number2Double);
+            val mult = multNumbers(number1Double,number2Double);
+            val sub = subNumbers(number1Double,number2Double);
 
-            Snackbar.make(view, "Soma: " + sum + "| Divisão: " + div + "| Multiplicação: " + mult + "| Subtração: " + sub,
-                Snackbar.LENGTH_LONG
+            val message = "Soma: ${sum.toString()} " +
+                    "| Divisão: ${div.toString()} " +
+                    "| Multiplicação: ${mult.toString()} " +
+                    "| Subtração: ${sub.toString()}"
+            Snackbar.make(view, message,
+                Snackbar.LENGTH_INDEFINITE
             ).setAction("Action", null).show()
 
         }
 
     }
-    fun sumNumbers(number1: Double,number2:Double): String {
-        return number1.plus(number2).toString();
+    fun sumNumbers(number1: Double,number2:Double): Double {
+        return number1.plus(number2);
     }
 
-    fun divNumbers(number1: Double,number2:Double): String {
-        return number1.div(number2).toString();
+    fun divNumbers(number1: Double,number2:Double): Double {
+        return number1.div(number2);
     }
 
-    fun multNumbers(number1: Double,number2:Double): String {
-        return number1.times(number2).toString();
+    fun multNumbers(number1: Double,number2:Double): Double {
+        return number1.times(number2);
     }
 
-    fun subNumbers(number1: Double,number2:Double): String {
-        return number1.minus(number2).toString();
+    fun subNumbers(number1: Double,number2:Double): Double {
+        return number1.minus(number2);
     }
 
 }
